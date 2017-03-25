@@ -1,0 +1,168 @@
+{% extends "./layout-tmpl.html" %}
+
+{% block content %}
+<section>
+
+	<div id="top-content-region" class="top-content region-0 padding-top-15 padding-bottom-15 block-15 bg-color-grayLight1">
+		<div class="container">
+			<div class="row">
+
+				<div id="top-content-left-region" class="top-content-left col-xs-12 col-md-6 text-center-sm">
+					<div class="region">
+
+						<div id="page-title-block" class="page-title block">
+							<h1>{{title}}</h1>
+						</div> <!-- /page-title-block -->
+
+					</div> <!-- /region -->
+				</div>
+
+			</div> <!-- /row -->
+		</div> <!-- /container -->
+	</div> <!-- /top-content-regi-->
+
+	<div id="content-region" class="content region">
+
+		<div id="about-content-block" class="about-content block">
+			<div class="container">
+				<div class="row">
+
+					<div class="col-xs-12 col-md-6 ul-chk-style">
+						<h5>{{content.title}}</h5>
+						<p>{{content.content | escape}}</p>
+					</div> <!-- /col-xs-12 -->
+
+					<div class="col-xs-12 col-md-6 margin-top-sm-30">
+						<div class="flex-arrow-slider">
+							<ul class="slides">
+								{% for _entry in content.image %}
+
+								<li class="flex-active-slide"><img src="{{_entry.url}}" alt="cookies" title="cookies" class="img-responsive img-full-width" draggable="false"></li>
+
+								{% endfor %}
+							</ul>
+							<ul class="flex-direction-nav">
+								<li>
+									<a class="flex-prev" href="#">Previous</a>
+								</li>
+								<li>
+									<a class="flex-next" href="#">Next</a>
+								</li>
+							</ul><!-- /flex-arrow-slider -->
+						</div>
+					</div> <!-- /col-xs-12 -->
+
+				</div> <!-- /row -->
+			</div> <!-- /container -->
+		</div> <!-- /about-content-block -->
+
+
+		<div id="section-block" class="section block">
+			<div class="container">
+				<div class="row">
+					{% for feature in features%}
+
+					<div class="col-xs-12 col-md-4 panels-item">
+						<h5 class="section-title">{{feature.title}}</h5>
+						<p>{{feature.description}}</p>
+					</div> <!-- /panels-item -->
+
+					{% endfor %}
+				</div> <!-- /row -->
+			</div> <!-- /container -->
+		</div> <!-- /section-block -->
+
+	</div> <!-- /content-region -->
+
+	<div id="content-1-region" class="content-1 bg-color-grayLight1 region">
+
+		<div id="company-stats-2-block" class="company-stats-2 block text-center">
+			<div class="container">
+
+				<div class="row">
+					<div class="col-xs-12 col-md-10 col-md-offset-1 text-center">
+						<h3 class="text-color-theme">{{company_stat.title}}</h3>
+						<p>{{company_stat.content}}</p>
+					</div> <!-- /col-xs-12 -->
+				</div> <!-- /row -->
+
+				<!--<div class="row">-->
+				<!--<div class="col-xs-12 col-md-4 company-stat-main">-->
+				<!--<i class="fa {{company_stat.font_awesome_icon}} size-48 text-color-theme" aria-hidden="true"></i>-->
+				<!--<h2 class="company-stat-main-title">{{company_stat.feature_stat}}</h2>-->
+				<!--<h6 class="company-stat-main-description">{{company_stat.description}}</h6>-->
+				<!--</div> &lt;!&ndash; /company-stat-main &ndash;&gt;-->
+
+				<!--<div class="col-xs-12 col-md-8 company-stat-extra3">-->
+				<!--<div class="row">-->
+				<!--{% for stat in company_stat.stat_details%}-->
+				<!--<div class="col-xs-4">-->
+				<!--<h3 class="company-stat-extra-title">{{stat.status}}</h3>-->
+				<!--<p>{{stat.description}}</p>-->
+				<!--</div> &lt;!&ndash; /col-xs-4 &ndash;&gt;-->
+				<!--{% endfor %}-->
+				<!--</div> &lt;!&ndash; /row &ndash;&gt;-->
+				<!--</div> &lt;!&ndash; /company-stat-extra &ndash;&gt;-->
+				<!--</div> &lt;!&ndash; /row &ndash;&gt;-->
+
+			</div> <!-- /container -->
+		</div> <!-- /company-stats-2-block -->
+
+	</div> <!-- /content-1-region -->
+
+	<div id="content-2-region" class="content-2 region team-section">
+
+		<div id="team-block" class="team block">
+			<div class="container">
+
+				<h2 class="block-title">{{team.title}}</h2>
+
+				<div class="row">
+
+					{% for team in team.team_member %}
+
+					<div class="col-xs-12 col-md-4 team-item">
+						<div class="team-item-image">
+							<img src="{{team.image.url}}" alt="member 1" title="member 1" class="img-responsive">
+							<div class="team-item-overlay">
+								<p>
+									{{team.social_site | escape}}
+								</p>
+							</div>
+						</div> <!-- /team-item-image -->
+						<div class="team-item-name">
+							<h6>{{team.name}}</h6>
+							<p class="text-color-theme">{{team.designation}}</p>
+						</div> <!-- /team-item-name -->
+						<p class="team-item-description">{{team.description}} </p>
+					</div> <!-- /team-item -->
+					{% endfor %}
+
+				</div> <!-- /row -->
+			</div> <!-- /container -->
+		</div> <!-- /team-block -->
+
+	</div> <!-- /content-2-region -->
+
+	<div id="content-3-region" class="content-3 region bg-color-grayLight1">
+
+		<div id="partners-block" class="partners block">
+			<div class="container">
+
+				<div class="row text-center">
+
+					{% for partner in partner %}
+
+					<div class="col-xs-12 col-sm-6 col-md-3 partner">
+						<img src="{{partner.image.url}}" alt="partner 1" class="img-responsive">
+					</div> <!-- /partner -->
+
+					{% endfor %}
+				</div> <!-- /row -->
+			</div> <!-- /container -->
+		</div> <!-- /partners-block -->
+
+	</div> <!-- /content-3-region -->
+
+</section>
+{% endblock %}

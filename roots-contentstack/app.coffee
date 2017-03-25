@@ -4,30 +4,41 @@ autoprefixer = require 'autoprefixer-stylus'
 js_pipeline  = require 'js-pipeline'
 css_pipeline = require 'css-pipeline'
 contentstack = require 'roots-contentstack'
+nunjucks     = require 'nunjucks'
 
 module.exports =
   ignores: ['readme.md', '**/layout.*', '**/_*', '.gitignore', 'ship.*conf']
 
   extensions: [
     contentstack
-      access_token: 'bltc4ae6c395b934141'
-      api_key: 'blt5f80a1219c6fbe60'
-      environment: 'development'
+      access_token: 'blte280687da40ee1b20314b0f7'
+      api_key: 'blt8b7655dad1fd8b40'
+      environment: 'test'
       content_types:
-        products:
-          id: 'product'
-          template: 'views/index.jade'
+        about:
+          id: 'about'
+          template: 'views/about-tmpl.html'
           path: (e) -> "#{e.url}"
-          write: 'product.json'
-        footer:
-          id: 'footer'
-          template: 'views/index.jade'
-          path: (e) -> "/"
-        items:
-          id: 'items'
-          template: 'views/index.jade'
+          write: 'about.json'
+        contact:
+          id: 'contact'
+          template: 'views/contact-tmpl.html'
           path: (e) -> "#{e.url}"
-          write: 'items.json'
+        faq:
+          id: 'faq'
+          template: 'views/faq-tmpl.html'
+          path: (e) -> "#{e.url}"
+          write: 'faq.json'
+        home:
+          id: 'home'
+          template: 'views/home-tmpl.html'
+          path: (e) -> "#{e.url}"
+          write: 'home.json'
+        services:
+          id: 'services'
+          template: 'views/services-tmpl.html'
+          path: (e) -> "#{e.url}"
+          write: 'services.json'
     js_pipeline(files: 'assets/js/*.coffee'),
     css_pipeline(files: 'assets/css/*.styl')
   ]
@@ -40,4 +51,7 @@ module.exports =
     sourcemap: true
 
   jade:
+    pretty: true
+
+  nunjucks:
     pretty: true

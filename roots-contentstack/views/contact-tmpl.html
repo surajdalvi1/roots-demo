@@ -1,0 +1,144 @@
+{% extends "./layout-tmpl.html" %}
+
+{% block content %}
+<section>
+    <div id="top-content-region"
+         class="top-content region-0 padding-top-15 padding-bottom-15 block-15 bg-color-grayLight1">
+        <div class="container">
+            <div class="row">
+
+                <div id="top-content-left-region" class="top-content-left col-xs-12 col-md-6 text-center-sm">
+                    <div class="region">
+
+                        <div id="page-title-block" class="page-title block">
+                            <h1>{{title}}</h1>
+                        </div>
+                        <!-- /page-title-block -->
+
+                    </div>
+                    <!-- /region -->
+                </div>
+                <!-- /top-content-left-region -->
+
+                <!--<div id="top-content-right-region"-->
+                     <!--class="top-content-right col-xs-12 col-md-6 text-right text-center-sm">-->
+                    <!--<div class="region">-->
+
+                        <!--<div id="page-breadcrumbs-block" class="page-breadcrumbs block">-->
+                            <!--<div class="breadcrumbs">-->
+                                <!--<a href="/">Home</a>-->
+                                <!--<span class="delimiter">›</span>-->
+                                <!--Contact-->
+                            <!--</div>-->
+                            <!--&lt;!&ndash; /breadcrumbs &ndash;&gt;-->
+                        <!--</div>-->
+                        <!--&lt;!&ndash; /page-breadcrumbs-block &ndash;&gt;-->
+
+                    <!--</div>-->
+                    <!--&lt;!&ndash; /region &ndash;&gt;-->
+                <!--</div>-->
+                <!--&lt;!&ndash; /top-content-right-region &ndash;&gt;-->
+
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /top-content-region -->
+
+
+    <div id="content-region" class="content region">
+
+        <div id="contacts-block" class="contacts block">
+            <div class="container">
+                <div class="row">
+                    {% for contact in contact_details %}
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-md-offset-2">
+                        <h5>{{contact.title}}</h5>
+
+                        <p>{{contact.details}}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+                <!-- /row -->
+            </div>
+            <!-- /container -->
+        </div>
+        <!-- /contacts-block -->
+
+        <div id="contact-content-block" class="contact-content block">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-xs-12 col-md-8 col-md-offset-2">
+
+                        <div class="" id="demo"></div>
+
+                        <!--Form  start-->
+                            <form name="form" class="form-horizontal" role="form">
+                                <div id="errorBox"></div>
+                                <div class="form-group">
+                                    <div class="col-md-6 margin-bottom-sm-20">
+                                        <input type="text" value="" class="form-control" id="contact-fname" name="Name" placeholder="First Name">
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" id="contact-lname" value="" name="LastName" placeholder="Last Name">
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-6 margin-bottom-sm-20">
+                                        <input type="text" class="form-control" id="contact-email" value="" name="Email" placeholder="Email">
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <input type="text" value="" class="form-control" id="contact-phone" name="phone" placeholder="phone">
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <input type="text" class="form-control" id="contact-subject" name="subject" placeholder="Subject">
+                                    </div> <!-- /col-xs-12 -->
+                                </div>
+
+
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <textarea class="form-control" rows="8" id="contact-message" name="message" placeholder="Message"></textarea>
+                                    </div> <!-- /col-xs-12 -->
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <input type="submit" class="btn btn-primary btn-sm" id="submit" name="submit" value="Send" onclick="return submitForm()">
+                                    </div> <!-- /col-xs-12 -->
+                                </div>
+                            </form>
+                        <!--form ends-->
+
+                    </div>
+                    <!-- /col-xs-12 -->
+
+                </div>
+                <!-- /row -->
+            </div>
+            <!-- /container -->
+        </div>
+        <!-- /contact-content-block -->
+
+    </div>
+    <!-- /content-region -->
+
+    <div id="map-region">
+        <div id="map_canvas" class="google-map">
+            {{map}}
+        </div>
+    </div>
+
+</section>
+
+{% endblock %}
