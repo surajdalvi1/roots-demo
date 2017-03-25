@@ -1,0 +1,131 @@
+{% extends "./layout-tmpl.html" %}
+
+{% block content %}
+<section>
+
+	<div id="top-content-region" class="top-content region-0 padding-top-15 padding-bottom-15 block-15 bg-color-grayLight1">
+		<div class="container">
+			<div class="row">
+
+				<div id="top-content-left-region" class="top-content-left col-xs-12 col-md-6 text-center-sm">
+					<div class="region">
+
+						<div id="page-title-block" class="page-title block">
+							<h1>{{title}}</h1>
+						</div> <!-- /page-title-block -->
+
+					</div> <!-- /region -->
+				</div> <!-- /top-content-left-region -->
+
+				<!--<div id="top-content-right-region" class="top-content-right col-xs-12 col-md-6 text-right text-center-sm">-->
+					<!--<div class="region">-->
+
+						<!--<div id="page-breadcrumbs-block" class="page-breadcrumbs block">-->
+							<!--<div class="breadcrumbs">-->
+								<!--<a href="/">Home</a>-->
+								<!--<span class="delimiter">›</span>-->
+								<!--<a href="#">Pages</a>-->
+								<!--<span class="delimiter">›</span>-->
+								<!--Service-->
+							<!--</div> &lt;!&ndash; /breadcrumbs &ndash;&gt;-->
+						<!--</div> &lt;!&ndash; /page-breadcrumbs-block &ndash;&gt;-->
+
+					<!--</div> &lt;!&ndash; /region &ndash;&gt;-->
+				<!--</div> &lt;!&ndash; /top-content-right-region &ndash;&gt;-->
+
+			</div> <!-- /row -->
+		</div> <!-- /container -->
+	</div> <!-- /top-content-region -->
+
+	<div id="highlighted-region" class="highlighted text-color-light">
+
+		<div id="text-widget-1-block" class="text-widget-1 position-relative bg-image-rails" data-stellar-background-ratio="0.7" style="background: url('') scroll center no-repeat; background-size: cover;">
+			<div class="overlay text-color-light">
+				<div class="vertical-center text-center">
+					<div class="container">
+						<h1> {{banner.title}}</h1>
+						<p> {{banner.description}}</p>
+					</div> <!-- /container -->
+				</div> <!-- /vertical-center -->
+			</div> <!-- /overlay -->
+		</div> <!-- /text-widget-1-block -->
+
+	</div> <!-- /highlighted-region -->
+
+	<div id="content-region" class="content region">
+
+		<div id="panels-4-block" class="panels-4 block">
+			<div class="container">
+				<div class="row">
+					{% for list in services_list %}
+					<div class="col-xs-12 col-sm-6 col-md-4 panels-item">
+						<div class="panels-icon text-color-theme">
+							<i class="fa {{list.font_awesome_class}}"></i>
+						</div> <!-- /panels-icon -->
+						<div class="panels-text">
+							<h6>{{list.title}}</h6>
+							<p>{{list.description}}</p>
+						</div> <!-- /panels-text -->
+					</div> <!-- /panels-item -->
+					{% endfor %}
+				</div> <!-- /row -->
+			</div> <!-- /container -->
+		</div> <!-- /panels-4-block -->
+
+	</div> <!-- /content-region -->
+
+	<!--<div id="content-1-region" class="content-1 region bg-color-grayDark2 text-color-light text-center">-->
+
+		<!--<div id="skills-1-block" class="skills-1 block">-->
+			<!--<div class="container">-->
+				<!--<div class="row">-->
+					<!--{% for name in technologies %}-->
+					<!--<div class="col-xs-4 col-md-2 skills-1-item">-->
+						<!--<h4 class="skills-1-item-title">{{name.stat}}</h4>-->
+						<!--<p class="text-color-theme">{{name.name}}</p>-->
+					<!--</div> &lt;!&ndash; /skills-1-item &ndash;&gt;-->
+					<!--{% endfor %}-->
+				<!--</div> &lt;!&ndash; /row &ndash;&gt;-->
+			<!--</div> &lt;!&ndash; /container &ndash;&gt;-->
+		<!--</div> &lt;!&ndash; /skills-1-block &ndash;&gt;-->
+
+	<!--</div> &lt;!&ndash; /content-1-region &ndash;&gt;-->
+
+	<div id="content-2-region" class="content-2 region testimonial-sec-service">
+
+		<div id="testimonials-2-block" class="testimonials-2 block text-center">
+			<div class="container">
+				<div class="row">
+					{% for testimonials in testimonials %}
+					<div class="col-xs-12 col-md-4 testimonials-2-item">
+						<i class="fa fa-comment-o testimonials-2-icon text-color-theme size-48"></i>
+						<p class="testimonials-2-text"> {{testimonials.description}}</p>
+						<p class="testimonials-2-author bitter-font"><i>{{testimonials.author}}</i></p>
+					</div> <!-- /testimonials-2-item -->
+					{% endfor %}
+
+				</div> <!-- /row -->
+			</div> <!-- container -->
+		</div> <!-- /testimonials-2-block -->
+
+	</div> <!-- /content-2-region -->
+
+	<div id="content-3-region" class="content-3 region bg-color-theme text-color-light">
+
+		<div id="call-to-action-1-block" class="call-to-action-1 block">
+			<div class="container">
+				<div class="row">
+
+					<div class="col-xs-12 text-center">
+						<h4 class="call-to-action-1-text">{{contact.title}}</h4>
+						<a href="{{contact.call_to_action.link}}" {% if contact.call_to_action.open_in_new_tab_ %} target="_blank" {% endif %} class="call-to-action-1-button btn btn-default">{{contact.call_to_action.title}}</a>
+					</div>
+
+				</div> <!-- /row -->
+			</div> <!-- /container -->
+		</div> <!-- /call-to-action-1-block -->
+
+	</div> <!-- /content-3-region -->
+
+</section>
+{% endblock %}
